@@ -1,131 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OCC's Future Engineers | LSU Olinde Career Center</title>
-  <link rel="icon" href="https://www.lsu.edu/_resources/img/favicon.ico" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fff;
-      color: #2c2a29;
-    }
-    header {
-      background-color: #461D7C;
-      color: #FDD023;
-      padding: 20px 15px;
-      text-align: center;
-    }
-    header img {
-      max-height: 80px;
-    }
-    section {
-      max-width: 960px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    h2 {
-      color: #461D7C;
-      border-bottom: 2px solid #FDD023;
-      padding-bottom: 5px;
-    }
-    .highlight-box {
-      background-color: #f5f5f5;
-      border-left: 5px solid #FDD023;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 6px;
-    }
-    footer {
-      background-color: #f1f1f1;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.85em;
-      color: #444;
-    }
-    a {
-      color: #461D7C;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
+name: Deploy static content to Pages
 
-<header>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/LSU_logo.svg" alt="LSU Logo" />
-  <h1>OCC's Future Engineers</h1>
-  <p>Professional Development Through Mock Interview Experiences</p>
-</header>
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-<section>
-  <h2>About OCC's Future Engineers</h2>
-  <p>This fictional engineering firm was created by the LSU Olinde Career Center to help students in the College of Engineering prepare for real-world interviews. Through mock opportunities like this, students sharpen their communication, technical knowledge, and confidence.</p>
-</section>
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-<section>
-  <h2>Our Mission & Values</h2>
-  <div class="highlight-box">
-    <p><strong>Mission:</strong> To engineer opportunity, empower students, and model the professionalism expected in the global engineering industry.</p>
-    <ul>
-      <li><strong>Integrity</strong> – We conduct every project with academic and professional honesty.</li>
-      <li><strong>Innovation</strong> – We believe creativity drives meaningful engineering solutions.</li>
-      <li><strong>Mentorship</strong> – We grow future engineers through hands-on learning and coaching.</li>
-      <li><strong>Impact</strong> – We challenge students to solve problems that matter to people and communities.</li>
-    </ul>
-  </div>
-</section>
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
-<section>
-  <h2>Mock Internship Description</h2>
-  <div class="highlight-box">
-    <p><strong>Title:</strong> Engineer Intern</p>
-    <p><strong>Location:</strong> Baton Rouge, LA (Simulated)</p>
-    <p>As an intern with OCC's Future Engineers, you’ll gain insight into structural analysis, mechanical systems design, project documentation, and professional teamwork. This opportunity supports the Mock Interview Program at LSU and is not a real position.</p>
-    <h3>Core Responsibilities:</h3>
-    <ul>
-      <li>Analyze, design, and evaluate engineering systems</li>
-      <li>Collaborate with cross-functional teams and contribute to simulated fieldwork</li>
-      <li>Practice using CAD software, drafting techniques, and technical reporting</li>
-      <li>Engage in root cause analysis, inspection, and process improvement</li>
-    </ul>
-    <h3>Qualifications:</h3>
-    <ul>
-      <li>LSU Engineering student approved for Fall 2025 Mock Interview participation</li>
-      <li>Interest in structural, electrical, or mechanical engineering</li>
-      <li>Strong communication and problem-solving skills</li>
-    </ul>
-  </div>
-</section>
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-<section>
-  <h2>Why Join OCC's Future Engineers?</h2>
-  <ul>
-    <li>Get hands-on experience with project-based engineering challenges</li>
-    <li>Mentorship from industry-experienced professionals</li>
-    <li>Collaborate in a supportive, inclusive, and innovation-focused environment</li>
-    <li>Build skills that translate into future internships and full-time careers</li>
-  </ul>
-</section>
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
 
-<section>
-  <h2>Contact</h2>
-  <p>For questions about this experience or how to prepare:</p>
-  <ul>
-    <li><strong>Brady Adamowicz</strong> – <a href="mailto:brady1@lsu.edu">brady1@lsu.edu</a></li>
-    <li><strong>Lisa Hibner</strong> – <a href="mailto:lisahibner@lsu.edu">lisahibner@lsu.edu</a></li>
-  </ul>
-</section>
+      - name: Upload static site files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
 
-<footer>
-  <p>This is a fictional job description created by the LSU Olinde Career Center for use in the College of Engineering’s Fall 2025 Mock Interview Program.</p>
-</footer>
-
-</body>
-</html>
-
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
