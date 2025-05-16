@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OCC’s Future Engineers – Mock Job Site</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #ffffff;
+      color: #333;
+    }
+    header {
+      background-color: #461D7C;
+      color: #FDD023;
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      max-width: 150px;
+      margin-bottom: 10px;
+    }
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #461D7C;
+    }
+    .job-description {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      border-left: 5px solid #FDD023;
+    }
+    footer {
+      background-color: #f1f1f1;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+    a {
+      color: #461D7C;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/LSU_logo.svg" alt="LSU Logo">
+  <h1>OCC’s Future Engineers</h1>
+  <p>Preparing Tomorrow's Engineers Today</p>
+</header>
+
+<section>
+  <h2>About the Program</h2>
+  <p>This website is part of the LSU College of Engineering's Fall 2025 Mock Interview Program. It provides a realistic job description for students to practice their interviewing skills in a simulated environment.</p>
+</section>
+
+<section>
+  <h2>About OCC’s Future Engineers</h2>
+  <p><strong>OCC’s Future Engineers</strong> is a fictional company created by LSU’s Olinde Career Center. The company specializes in innovative engineering solutions across various disciplines, offering students a platform to engage in practical, real-world scenarios.</p>
+</section>
+
+<section>
+  <h2>Engineer Intern – Sample Job Description</h2>
+  <div class="job-description">
+    <p><strong>Position:</strong> Engineer Intern</p>
+    <p><strong>Location:</strong> Baton Rouge, LA</p>
+    <p><strong>Description:</strong> As an Engineer Intern, you will collaborate with project engineers on evaluating existing conditions, designing structural repairs, managing construction processes, and interacting with clients and contractors.</p>
+
+    <p><strong>Responsibilities:</strong></p>
+    <ul>
+      <li>Design construction projects and analyze engineering problems.</li>
+      <li>Calculate specifications and create technical drawings.</li>
+      <li>Use CAD software for design and drafting tasks.</li>
+      <li>Ensure compliance with building regulations and evaluate construction quality.</li>
+      <li>Provide technical support and maintain accurate records.</li>
+    </ul>
+
+    <p><strong>Qualifications:</strong></p>
+    <ul>
+      <li>Currently pursuing a Bachelor's degree in Engineering (Mechanical, Electrical, or related field).</li>
+      <li>Strong analytical and problem-solving skills.</li>
+      <li>Proficiency in Microsoft Office Suite and CAD software.</li>
+      <li>Excellent communication and teamwork abilities.</li>
+    </ul>
+
+    <p><strong>Note:</strong> This is a mock job posting for educational purposes only. Only students approved for the Fall 2025 Mock Interview Program may apply.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Contact Information</h2>
+  <p>For questions regarding the mock interview program, please contact:</p>
+  <ul>
+    <li>Brady Adamowicz – <a href="mailto:brady1@lsu.edu">brady1@lsu.edu</a></li>
+    <li>Lisa Hibner – <a href="mailto:lisahibner@lsu.edu">lisahibner@lsu.edu</a></li>
+  </ul>
+</section>
+
+<footer>
+  <p>This site is for educational purposes only and is part of the LSU College of Engineering's Mock Interview Program.</p>
+</footer>
+
+</body>
+</html>
